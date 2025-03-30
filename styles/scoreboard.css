@@ -1,0 +1,233 @@
+/* Scoreboard Styles */
+.scoreboard-container {
+    max-width: 800px;
+    width: 90%;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    padding: 2rem;
+    margin: 2rem auto;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-slow);
+}
+
+.scoreboard-container.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final-score {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--lighter-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.final-score::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+.final-score span {
+    color: var(--primary-color);
+    font-size: 3rem;
+}
+
+table.table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+}
+
+table.table th, 
+table.table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table.table th {
+    background-color: var(--lighter-bg);
+    color: var(--text-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+table.table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+table.table tbody tr:hover {
+    background-color: var(--hover-bg);
+}
+
+table.table tbody tr:first-child {
+    font-weight: bold;
+}
+
+table.table tbody tr:first-child td:first-child::before {
+    content: "🏆";
+    margin-right: 8px;
+}
+
+table.table tbody tr:nth-child(2) td:first-child::before {
+    content: "🥈";
+    margin-right: 8px;
+}
+
+table.table tbody tr:nth-child(3) td:first-child::before {
+    content: "🥉";
+    margin-right: 8px;
+}
+
+.try-again-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition-medium);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 1.5rem;
+}
+
+.try-again-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.try-again-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.score-message {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+.share-score {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lighter-bg);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition-medium);
+}
+
+.share-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Dark Mode Support */
+.dark-mode .scoreboard-container {
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.dark-mode .final-score {
+    background-color: var(--lighter-bg);
+    color: var(--text-color);
+}
+
+.dark-mode .leaderboard th {
+    background-color: var(--lighter-bg);
+    color: var(--text-color);
+}
+
+.dark-mode table.table td,
+.dark-mode table.table th {
+    border-color: var(--border-color);
+}
+
+.dark-mode .score-message {
+    color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .scoreboard-container {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    
+    .final-score {
+        font-size: 2rem;
+    }
+    
+    .final-score span {
+        font-size: 2.5rem;
+    }
+    
+    .leaderboard th, 
+    .leaderboard td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .try-again-btn {
+        padding: 0.7rem 1.8rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scoreboard-container {
+        padding: 1rem;
+    }
+    
+    .final-score {
+        font-size: 1.8rem;
+        padding: 0.75rem;
+    }
+    
+    .final-score span {
+        font-size: 2.2rem;
+    }
+    
+    .leaderboard th, 
+    .leaderboard td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .try-again-btn {
+        padding: 0.6rem 1.6rem;
+        font-size: 0.9rem;
+    }
+}
+
