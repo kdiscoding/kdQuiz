@@ -425,6 +425,7 @@
             nameInput.addEventListener("change", () => {
                 localStorage.setItem("userName", nameInput.value);
             });
+              nameInput.value ="";
         }
         // Theme toggle
         document.querySelector("#theme-toggle").addEventListener("click", () => {
